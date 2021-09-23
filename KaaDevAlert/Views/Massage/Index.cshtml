@@ -1,0 +1,57 @@
+﻿@model IEnumerable<KaaDevAlert.Models.Massage>
+
+@{
+    int rowNumber = 1;
+    ViewData["Title"] = "Massage";
+}
+
+<div class="row">
+    <a href="/Massage/Create" class="btn btn-primary">New Meassge</a>
+</div>
+<br />
+<div class="row">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Lable)
+                </th>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @rowNumber
+                        @*@Html.DisplayFor(modelItem => item.Id)*@
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Lable)
+                    </td>
+                    <td>
+
+
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id"class="btn btn-secondary btn-sm" >Edit</a> |
+                        <a href="/Massage/Delete/@item.Id"class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+                rowNumber++;
+            }
+        </tbody>
+    </table>
+</div>
